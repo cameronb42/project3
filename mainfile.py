@@ -24,8 +24,62 @@ for line in open(FILE_NAME):
   if line.find("1994")!= -1:
     totalyear_requests += 1
 
+    
+    
+    
 # Print results
 print("Total Log Requests Made in the Last Year: ", totalyear_requests)
 
 print("Total Requests Made in Time Period of Log: ", total_requests)
- 
+    
+# How many requests were made on each day?
+for line in open(FILE_NAME):
+
+  
+
+  
+  
+  
+  
+# How many requests were made on a week by week basis? per month?
+
+
+
+
+
+# Percentage of requests not success full
+
+
+
+
+# Percentage directed  elsewhere 
+
+
+
+
+# what was the most requested file
+
+
+# What was the least requested file
+    
+    
+
+    
+
+    
+# Log split into 12 spereate files
+awk 'BEGIN {
+    split("Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec ", months, " ")
+    for (a = 1; a <= 12; a++)
+        m[months[a]] = sprintf("%02d", a)
+}
+{
+    split($4,array,"[:/]")
+    year = array[3]
+    month = m[array[2]]
+
+    print > FILENAME"-"year"_"month".txt"
+}' incendiary.ws-1995
+
+
+
