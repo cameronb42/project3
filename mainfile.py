@@ -32,8 +32,14 @@ print("Total Log Requests Made in the Last Year: ", totalyear_requests)
 
 print("Total Requests Made in Time Period of Log: ", total_requests)
     
+
+  
+  
+  
+  
+# PART 2 OF THE PROJECT DUE THE 25TH  
 # How many requests were made on each day?
-#for line in open(FILE_NAME):
+
 
   
 
