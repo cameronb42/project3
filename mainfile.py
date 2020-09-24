@@ -68,18 +68,7 @@ print("Total Requests Made in Time Period of Log: ", total_requests)
 
     
 # Log split into 12 spereate files
-awk 'BEGIN {
-    split("Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec ", months, " ")
-    for (a = 1; a <= 12; a++)
-        m[months[a]] = sprintf("%02d", a)
-}
-{
-    split($4,array,"[:/]")
-    year = array[3]
-    month = m[array[2]]
 
-    print > FILENAME"-"year"_"month".txt"
-}' incendiary.ws-1995
 
 
 
