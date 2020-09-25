@@ -83,27 +83,34 @@ return (100*CachedRequests)/TotalRequests
 
 # what was the most requested file
 import collections
-
-logfile = open("local_copy.log", "r")
-
+FILE_NAME = open("/home/cameron/local_copy.log", "r")
 clean_log=[]
-
-for line in logfile:
+for line in FILE_NAME:
     try:
 
-        clean_log.append(line[line.index("GET")+4:line.index("HTTP")])
+        clean_log.append(line[line.index("GET")+4:line.index("HTTP")]) 
     except:
-        pass
-
+            pass
 counter = collections.Counter(clean_log)
-
 for count in counter.most_common(1):
     print(str(count[1]) + "	" + str(count[0]))
+FILE_NAME.close()
 
-logfile.close()
 
 # What was the least requested file
-    
+import collections
+FILE_NAME = open("/home/cameron/local_copy.log", "r")
+clean_log=[]
+for line in FILE_NAME:
+    try:
+
+        clean_log.append(line[line.index("GET")+4:line.index("HTTP")]) 
+    except:
+            pass
+counter = collections.Counter(clean_log)
+for count in counter.least_common(1):
+    print(str(count[1]) + "	" + str(count[0]))
+FILE_NAME.close()
     
 
     
