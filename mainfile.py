@@ -73,13 +73,11 @@ def ClientCachePercentage(local_copy.log):
     Contents = open(local_copy.log, "r").xreadlines(  )
     TotalRequests = 0
     CachedRequests = 0
-
-    for line in Contents:
+for line in Contents:
         TotalRequests += 1
         if line.split(" ")[8] == "304":  
             CachedRequests += 1
-
-    return (100*CachedRequests)/TotalRequests
+return (100*CachedRequests)/TotalRequests
 
 
 
