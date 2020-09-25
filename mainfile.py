@@ -55,7 +55,7 @@ print("Total Requests Made in Time Period of Log: ", total_requests)
 
 # Percentage of requests not success full
 def ClientCachePercentage(local_copy.log):
-    Contents = open(local_copy.log, "r").xreadlines(  )
+    Contents = open("local_copy.log", "r").xreadlines(  )
     TRequests = 0
     CRequests = 0
 
@@ -70,7 +70,7 @@ def ClientCachePercentage(local_copy.log):
 
 # Percentage directed  elsewhere 
 def ClientCachePercentage(local_copy.log):
-    Contents = open(local_copy.log, "r").xreadlines(  )
+    Contents = open("local_copy.log", "r").xreadlines(  )
     TotalRequests = 0
     CachedRequests = 0
 for line in Contents:
@@ -82,7 +82,25 @@ return (100*CachedRequests)/TotalRequests
 
 
 # what was the most requested file
+import collections
 
+logfile = open("local_copy.log", "r")
+
+clean_log=[]
+
+for line in logfile:
+    try:
+
+        clean_log.append(line[line.index("GET")+4:line.index("HTTP")])
+    except:
+        pass
+
+counter = collections.Counter(clean_log)
+
+for count in counter.most_common(1):
+    print(str(count[1]) + "	" + str(count[0]))
+
+logfile.close()
 
 # What was the least requested file
     
