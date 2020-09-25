@@ -54,12 +54,32 @@ print("Total Requests Made in Time Period of Log: ", total_requests)
 
 
 # Percentage of requests not success full
+def ClientCachePercentage(local_copy.log):
+    Contents = open(local_copy.log, "r").xreadlines(  )
+    TRequests = 0
+    CRequests = 0
 
+    for line in Contents:
+        TRequests += 1
+        if line.split(" ")[8] == "441, 404":  # if server returned "not modified"
+            CRequests += 1
+
+    return (100*CRequests)/TRequests
 
 
 
 # Percentage directed  elsewhere 
+def ClientCachePercentage(local_copy.log):
+    Contents = open(local_copy.log, "r").xreadlines(  )
+    TotalRequests = 0
+    CachedRequests = 0
 
+    for line in Contents:
+        TotalRequests += 1
+        if line.split(" ")[8] == "304":  
+            CachedRequests += 1
+
+    return (100*CachedRequests)/TotalRequests
 
 
 
