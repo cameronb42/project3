@@ -11,7 +11,7 @@ local_file, headers = urlretrieve(URL_PATH, LOCAL_FILE)
 local_file, headers = urlretrieve(URL_PATH, LOCAL_FILE, lambda x,y,z: print('.', end='', flush=True) if x % 100 == 0 else False)
 
 # open log
-FILE_NAME = '/home/cameron/local_copy.log'
+FILE_NAME = 'local_copy.log'
 
 # Variables
 total_requests = 0
@@ -54,18 +54,17 @@ print("Total Requests Made in Time Period of Log: ", total_requests)
 
 
 # Percentage of requests not success full
-FILE_NAME = '/home/cameron/local_copy.log'
+FILE_NAME = 'local_copy.log'
 def ClientCachePercentage(FILE_NAME):
     Contents = open("FILE_NAME", "r").xreadlines(  )
     TRequests = 0
     CRequests = 0
 
-    for line in Contents:
+for line in Contents:
         TRequests += 1
-        if line.split(" ")[8] == "441, 404":  # if server returned "not modified"
-            CRequests += 1
-
-    return (100*CRequests)/TRequests
+if line.split(" ")[8] == "441, 404":  # if server returned "not modified"
+           CRequests += 1 
+return (100*CRequests)/TRequests
   
 
 
