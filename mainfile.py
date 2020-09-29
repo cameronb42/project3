@@ -54,8 +54,9 @@ print("Total Requests Made in Time Period of Log: ", total_requests)
 
 
 # Percentage of requests not success full
-def ClientCachePercentage(local_copy.log):
-    Contents = open("local_copy.log", "r").xreadlines(  )
+FILE_NAME = '/home/cameron/local_copy.log'
+def ClientCachePercentage(FILE_NAME):
+    Contents = open("FILE_NAME", "r").xreadlines(  )
     TRequests = 0
     CRequests = 0
 
@@ -65,6 +66,7 @@ def ClientCachePercentage(local_copy.log):
             CRequests += 1
 
     return (100*CRequests)/TRequests
+  
 
 
 
